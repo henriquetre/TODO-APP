@@ -1,0 +1,19 @@
+<div class="alinhar">
+   <input placeholder="Insira sua tarefa" [(ngModel)]="tarefa.Descricao" />
+<button (click)="adicionarTarefa()">Cadastrar</button>
+</div>
+
+
+    <div *ngFor="let tarefa of listaTarefas">
+
+    <p class="alinhar" id="border">{{ tarefa.Descricao }}
+       <input type="checkbox" id="todo"/> TODO
+        <input type="checkbox" id="doing"/>DOING
+        <input type="checkbox" id="done"/>DONE   
+
+        <button (click)="excluirTarefa(tarefa)">Excluir</button>
+     </p>
+     
+</div>
+
+

@@ -1,0 +1,12 @@
+#todo-app{
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    
+}
+.back{
+    color: black;
+    width: 100vw;
+    height: auto;
+    margin: 0;
+}
