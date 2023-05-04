@@ -2,14 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    margin-left: 15px;
 }
 #border{
   border-style: solid;
   border-radius: 20px;
   width: 500px;
-  height: 50px;
-  font-size: x-large;
+  height: 45px;
+  font-size: large;
   display: flex;
   flex-wrap: wrap;
+}
+#excluir{
+ margin-left: 10px;
+ background-color: red;
+}
+#cadastrar{
+  background-color: green;
+}
+.todo{
+  margin-left: 20px;
 }
