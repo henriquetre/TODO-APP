@@ -39,13 +39,18 @@ export class InputComponent implements OnInit{
             Descricao: this.tarefa.Descricao,
             Categoria: this.tarefa.Categoria,
           };
-          this.listaTarefas.push(novaTarefa);
-          localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
-          this.tarefa.Descricao="";
+          if(this.tarefa.Categoria==""){
+            alert("Insira uma Categoria" )
+          
+          }else{
+            this.listaTarefas.push(novaTarefa);
+            localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
+            this.tarefa.Descricao="";
+          }
+          
     
     }
 
-   
     excluirTarefa(tarefa: Tarefa): void {
       const index = this.listaTarefas.indexOf(tarefa);
 
