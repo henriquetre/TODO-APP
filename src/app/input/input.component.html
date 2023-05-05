@@ -7,41 +7,71 @@
    <option>DONE</option>
    </select> 
 </div>
-
-  <h1 class="listasT">To Do</h1>
-  <div *ngFor="let tarefa of listaTodo">
+<div class="grid">
+  <div class="listasT">To Do</div>
+  </div>
+  <div *ngFor="let tarefa of listaTarefas">
+    <div *ngIf="tarefa.Categoria == 'TODO'">
 
    <p class="alinhar"class="listasT"> Descricao: {{ tarefa.Descricao }}
 
 
        <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
         <span>{{tarefa.Categoria}}</span>
-        <button (click)="editarTarefa(tarefa)">Editar</button>
+    
       
-   
+        <select 
+        [(ngModel)]="tarefa.Categoria"
+        (change)="atualizarLocalStorage()">
+            <option>TODO</option>
+            <option>DOING</option>
+            <option>DONE</option>
+            </select> 
     </p>
+    </div>
 </div>
-  <h1 class="listasDI">DOING</h1>
-  <div *ngFor="let tarefa of listaDoing">
 
+<div class="grid">
+  <div class="listasDI">DOING</div>
+  </div>
+  <div *ngFor="let tarefa of listaTarefas">
+    <div *ngIf="tarefa.Categoria == 'DOING'">
    <p class="alinhar"  class="listasDI"> Descricao: {{ tarefa.Descricao }}
 
 
        <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
         <span>{{tarefa.Categoria}}</span>
-        <button (click)="editarTarefa(tarefa)">Editar</button>
+        <select [(ngModel)]="tarefa.Categoria"
+        (change)="atualizarLocalStorage()">
+            <option>TODO</option>
+            <option>DOING</option>
+            <option>DONE</option>
+            </select> 
     </p>
+    </div>
 </div>
-  <h1 class="listasDN">DONE</h1>
-  <div *ngFor="let tarefa of listaDone">
+
+
+  <div class="listasDN">DONE</div>
+
+  <div *ngFor="let tarefa of listaTarefas">
+    <div *ngIf="tarefa.Categoria == 'DONE'">
 
    <p class="alinhar" class="listasDN"> Descricao: {{ tarefa.Descricao }}
 
 
        <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
         <span>{{tarefa.Categoria}}</span>
-        <button (click)="editarTarefa(tarefa)">Editar</button>
+        <select [(ngModel)]="tarefa.Categoria"
+        (change)="atualizarLocalStorage()">
+            <option>TODO</option>
+            <option>DOING</option>
+            <option>DONE</option>
+            </select>
+
     </p>
+    </div>
+  </div>
 </div>
     
 
