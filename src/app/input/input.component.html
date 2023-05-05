@@ -1,19 +1,48 @@
 <div class="alinhar">
    <input placeholder="Insira sua tarefa" [(ngModel)]="tarefa.Descricao" />
 <button (click)="adicionarTarefa()" id="cadastrar">Cadastrar</button>
+<select [(ngModel)]="tarefa.Categoria">
+   <option>TODO</option>
+   <option>DOING</option>
+   <option>DONE</option>
+   </select> 
 </div>
 
+  <h1 class="listasT">To Do</h1>
+  <div *ngFor="let tarefa of listaTodo">
 
-    <div *ngFor="let tarefa of listaTarefas">
+   <p class="alinhar"class="listasT"> Descricao: {{ tarefa.Descricao }}
 
-    <p class="alinhar" id="border">Tarefa: {{ tarefa.Descricao }}
-       <input type="checkbox" class="todo"/> TODO
-        <input type="checkbox" class="todo"/>DOING
-        <input type="checkbox" class="todo"/>DONE   
 
-        <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
-     </p>
-     
+       <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
+        <span>{{tarefa.Categoria}}</span>
+        <button (click)="editarTarefa(tarefa)">Editar</button>
+      
+   
+    </p>
 </div>
+  <h1 class="listasDI">DOING</h1>
+  <div *ngFor="let tarefa of listaDoing">
+
+   <p class="alinhar"  class="listasDI"> Descricao: {{ tarefa.Descricao }}
+
+
+       <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
+        <span>{{tarefa.Categoria}}</span>
+        <button (click)="editarTarefa(tarefa)">Editar</button>
+    </p>
+</div>
+  <h1 class="listasDN">DONE</h1>
+  <div *ngFor="let tarefa of listaDone">
+
+   <p class="alinhar" class="listasDN"> Descricao: {{ tarefa.Descricao }}
+
+
+       <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
+        <span>{{tarefa.Categoria}}</span>
+        <button (click)="editarTarefa(tarefa)">Editar</button>
+    </p>
+</div>
+    
 
 
