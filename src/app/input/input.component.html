@@ -2,16 +2,18 @@
    <input placeholder="Insira sua tarefa" [(ngModel)]="tarefa.Descricao" id="INPUT"/>
 <button (click)="adicionarTarefa()" id="cadastrar">Cadastrar</button>
 <select [(ngModel)]="tarefa.Categoria">
-   <option>TODO</option>
-   <option>DOING</option>
-   <option>DONE</option>
+   <option *ngFor="let categoria of listaCategoria">{{categoria}}</option>
+  
    </select> 
+   <input placeholder="Insira uma nova categoria" [(ngModel)]="categoria">
+<button (click)="adcionarCategoria(categoria)">Criar Categoria</button>
 </div>
+
 <div class="grid">
   <div>
-    <div class="listasT">To Do</div>
+    <div *ngFor="let categoria of listaCategoria" class="listasDI">{{categoria}}</div>
       <div *ngFor="let tarefa of listaTarefas">
-        <div *ngIf="tarefa.Categoria == 'TODO'">
+        <div *ngIf="tarefa.Categoria == categoria">
 
         <p class="alinhar"class="listasT" class="categoria"> Descricao: {{ tarefa.Descricao }}
 
@@ -23,57 +25,13 @@
             <select class="select"
             [(ngModel)]="tarefa.Categoria"
             (change)="atualizarLocalStorage()">
-                <option>TODO</option>
-                <option>DOING</option>
-                <option>DONE</option>
+            <option *ngFor="let categoria of listaCategoria">{{categoria}}</option>
                 </select> 
         </p>
       </div>
     </div>
   </div>
-  <div>
-      <div class="listasDI">DOING</div>
-        <div *ngFor="let tarefa of listaTarefas">
-          <div *ngIf="tarefa.Categoria == 'DOING'">
-            <p class="alinhar"  class="listasDI" class="categoria"> Descricao: {{ tarefa.Descricao }}
-
-
-            <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
-            <select [(ngModel)]="tarefa.Categoria"
-            (change)="atualizarLocalStorage()"
-            class="select">
-                <option>TODO</option>
-                <option>DOING</option>
-                <option>DONE</option>
-                </select> 
-          </p>
-        </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="listasDN">DONE</div>
-
-    <div *ngFor="let tarefa of listaTarefas">
-      <div *ngIf="tarefa.Categoria == 'DONE'">
-
-    <p class="alinhar" class="listasDN" class="categoria"> Descricao: {{ tarefa.Descricao }}
-
-
-        <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
-          <select [(ngModel)]="tarefa.Categoria"
-          (change)="atualizarLocalStorage()"
-          class="select">
-              <option>TODO</option>
-              <option>DOING</option>
-              <option>DONE</option>
-              </select>
-
-      </p>
-      </div>
-    </div>
-  </div>
-</div>
+ 
 
     
 

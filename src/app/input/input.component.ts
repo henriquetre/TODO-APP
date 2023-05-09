@@ -22,9 +22,19 @@ export class InputComponent implements OnInit{
       this.listaTarefas = lista;
       console.log(lista);
     }
-  }
-  
 
+    // const lista1: String[] = JSON.parse(localStorage.getItem('listaCategoria'));
+    // if (lista1 != null) {
+    //   this.listaCategoria = lista1;
+    //   console.log(lista1);
+    // } 
+ 
+    this.listaCategoria.push("To-do");
+    this.listaCategoria.push("Doing");
+    this.listaCategoria.push("Done");
+  
+  }
+  categoria: String;
     @Output() click = new EventEmitter<Tarefa>();
 
     tarefa: Tarefa = {
@@ -33,6 +43,7 @@ export class InputComponent implements OnInit{
     };
 
     listaTarefas: Tarefa[]=[];
+    listaCategoria: String[]=[];
 
     adicionarTarefa(): void{
         const novaTarefa: Tarefa = {
@@ -62,6 +73,14 @@ export class InputComponent implements OnInit{
     atualizarLocalStorage():void{
       console.log('entrei');
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas))
+    }
+
+    adcionarCategoria(categoria:String ): void{
+      let NovaCategoria=categoria;
+      this.listaCategoria.push(NovaCategoria)
+      NovaCategoria="";
+      localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria))
+
     }
   
   }
