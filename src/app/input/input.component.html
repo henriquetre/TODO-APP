@@ -10,13 +10,14 @@
 </div>
 
 <div class="grid">
-  <div>
-    <div *ngFor="let categoria of listaCategoria" class="listasDI">{{categoria}}</div>
+  <div >
+      <div *ngFor="let categoria of listaCategoria" class="listasDI">{{categoria}}</div>
+  
       <div *ngFor="let tarefa of listaTarefas">
-        <div *ngIf="tarefa.Categoria == categoria">
-
+        <div *ngIf="tarefa.categoria == categoria">
+        
         <p class="alinhar"class="listasT" class="categoria"> Descricao: {{ tarefa.Descricao }}
-
+     
 
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
             <span></span>
@@ -29,7 +30,8 @@
                 </select> 
         </p>
       </div>
-    </div>
+      </div>
+      </div>
   </div>
  
 
