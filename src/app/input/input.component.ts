@@ -16,6 +16,7 @@ interface Tarefa{
 
 })
 export class InputComponent implements OnInit{
+
   ngOnInit() {
     const lista: Tarefa[] = JSON.parse(localStorage.getItem('listaTarefas'));
     if (lista != null) {
@@ -23,17 +24,16 @@ export class InputComponent implements OnInit{
       console.log(lista);
     }
 
-    // const lista1: String[] = JSON.parse(localStorage.getItem('listaCategoria'));
-    // if (lista1 != null) {
-    //   this.listaCategoria = lista1;
-    //   console.log(lista1);
-    // } 
- 
-    this.listaCategoria.push("To-do");
-    this.listaCategoria.push("Doing");
-    this.listaCategoria.push("Done");
+    const lista1: String[] = JSON.parse(localStorage.getItem('listaCategoria'));
+    if (lista1 != null) {
+      this.listaCategoria = lista1;
+      console.log(lista1);
+    } 
   
   }
+
+
+
   categoria: String;
     @Output() click = new EventEmitter<Tarefa>();
 
@@ -77,8 +77,8 @@ export class InputComponent implements OnInit{
 
     adcionarCategoria(categoria:String ): void{
       let NovaCategoria=categoria;
-      this.listaCategoria.push(NovaCategoria)
-      NovaCategoria="";
+      this.listaCategoria.push(categoria)
+      categoria="";
       localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria))
 
     }

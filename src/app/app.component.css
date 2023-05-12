@@ -1,7 +1,11 @@
-#todo-app{
+.todo-app{
     margin: 0%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
     
 }
 .back{
@@ -9,4 +13,18 @@
     width: auto;
     height: auto;
     margin: 0%;
+}
+.link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black;
+    color: white;
+    border-radius: 8px;
+    background-color: inherit;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-decoration: none;
 }

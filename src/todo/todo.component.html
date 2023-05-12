@@ -1,0 +1,15 @@
+
+<div id="center">
+  <input placeholder="Insira uma nova categoria" [(ngModel)]="categoria" id="inputCategoria">
+<button (click)="adcionarCategoria(categoria)" id="botao">Criar Categoria</button>
+
+</div>
+<div>
+<div id="center">
+  <div *ngFor="let categoria of listaCategoria" class="categoria">Categorias Cadastradas: {{categoria}}
+  <button (click)="excluirCategoria(categoria)" id="excluir">🗑️</button>
+</div>
+  </div>
+</div>
+
+ 
