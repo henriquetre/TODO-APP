@@ -15,6 +15,10 @@
     align-items: center;
 }
 .categoria{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: auto;
     height: auto;
     border: solid black;
@@ -45,6 +49,6 @@
 }
 #grid{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,33%);
 
 }
