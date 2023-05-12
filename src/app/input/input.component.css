@@ -85,7 +85,7 @@ grid-template: repeat(auto,1fr);
 }
 #centro{
   color: white;
-  background-color: darkred;
+  background-color:black;
   display: flex;
   justify-content: center;
   align-items: center;
