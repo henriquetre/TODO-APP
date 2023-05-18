@@ -40,13 +40,14 @@ const lista1: String[] = JSON.parse(localStorage.getItem('listaCategoria'));
   
       adcionarCategoria(categoria:String ): void{
         let NovaCategoria=categoria;
-        if(categoria==null){
+        if(categoria==null || categoria==""){
           alert("Insira um nome para a Categoria")
         }else{
           console.log(categoria)
           this.listaCategoria.push(NovaCategoria)
           localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria));
           categoria==null;
+          categoria=="";
         }
        
        

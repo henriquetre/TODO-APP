@@ -5,8 +5,9 @@
 
 </div>
 <div>
+  <h3 id="centralizar">Categorias Cadastradas:</h3>
 <div id="grid">
-  <div *ngFor="let categoria of listaCategoria" class="categoria">Categorias Cadastradas: {{categoria}}
+  <div *ngFor="let categoria of listaCategoria" class="categoria">Categoria:  {{categoria}}
   <button (click)="excluirCategoria(categoria)" id="excluir">🗑️</button>
 </div>
   </div>
