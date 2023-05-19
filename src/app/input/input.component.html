@@ -2,17 +2,17 @@
    <input placeholder="Insira sua tarefa" [(ngModel)]="tarefa.Descricao" id="INPUT"/>
 <button (click)="adicionarTarefa()" id="cadastrar">Cadastrar</button>
 <select [(ngModel)]="tarefa.Categoria">
-   <option *ngFor="let categoria of listaCategoria">{{categoria}}</option>
+   <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
   
    </select> 
   </div>
 <div class="grid">
-     <div *ngFor="let categoria of listaCategoria" class="listasDI"><div id="centro">{{categoria}}</div>
+     <div *ngFor="let categoria of listaCategoria" class="listasDI" ><div id="centro" [style.background-color]="categoria.Cor">{{categoria.Nome}}</div>
   
       <div *ngFor="let tarefa of listaTarefas">
-        <div *ngIf="tarefa.Categoria == categoria">
+        <div *ngIf="tarefa.Categoria == categoria.Nome">
         
-        <p class="alinhar"class="listasT" class="categoria"> Descricao: {{ tarefa.Descricao }}
+        <p class="alinhar"class="listasT" class="categoria">  Descricao: {{tarefa.Descricao}}
      
 
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
@@ -20,15 +20,15 @@
             <select class="select"
             [(ngModel)]="tarefa.Categoria"
             (change)="atualizarLocalStorage()">
-            <option *ngFor="let categoria of listaCategoria">{{categoria}}</option>
+            <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
             </select> 
         </p>
        </div>
       </div>
     </div>
-  </div>
-    
-    
+    </div>
+  
+  
 
  
 

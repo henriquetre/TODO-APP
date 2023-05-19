@@ -50,6 +50,7 @@ export class InputComponent implements OnInit{
             Descricao: this.tarefa.Descricao,
             Categoria: this.tarefa.Categoria,
           };
+          console.log(novaTarefa)
           if(this.tarefa.Categoria==""){
             alert("Insira uma Categoria" )
           
@@ -67,6 +68,7 @@ export class InputComponent implements OnInit{
 
       if (index !== -1) {
         this.listaTarefas.splice(index, 1);
+        console.log(this.listaTarefas)
       }
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas))    
     }
@@ -75,13 +77,6 @@ export class InputComponent implements OnInit{
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas))
     }
 
-    adcionarCategoria(categoria:String ): void{
-      let NovaCategoria=categoria;
-      this.listaCategoria.push(categoria)
-      categoria="";
-      localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria))
-
-    }
   
   }
   

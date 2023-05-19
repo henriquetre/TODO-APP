@@ -1,13 +1,14 @@
 
 <div id="center">
-  <input placeholder="Insira uma nova categoria" [(ngModel)]="categoria" id="inputCategoria">
-<button (click)="adcionarCategoria(categoria)" id="botao">Criar Categoria</button>
+  <input placeholder="Insira uma nova categoria" [(ngModel)]="categoria.Nome" id="inputCategoria">
+<button (click)="adcionarCategoria()" id="botao">Criar Categoria</button>
+<input type="color" [(ngModel)]="categoria.Cor" id="backgroundCategoria">
 
 </div>
 <div>
   <h3 id="centralizar">Categorias Cadastradas:</h3>
 <div id="grid">
-  <div *ngFor="let categoria of listaCategoria" class="categoria">Categoria:  {{categoria}}
+  <div *ngFor="let categoria of listaCategoria" class="categoria" [style.background-color]="categoria.Cor">Categoria:  {{categoria.Nome}}
   <button (click)="excluirCategoria(categoria)" id="excluir">🗑️</button>
 </div>
   </div>
