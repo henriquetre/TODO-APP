@@ -41,7 +41,6 @@
   height: 400px;
   border-style:solid ;
   border-radius: 10px;
-  border-color: black;
   font-size: 20px;
   margin-left: 15px;
   font-family:Arial, Helvetica, sans-serif;
@@ -70,21 +69,19 @@
     margin-bottom: 7px ;
     width: 400px;
     height: 200px;
-    border-style:solid ;
-    border-radius: 10px;
-    border-color: black;
     font-size: 20px;
     background-color:white;
     margin-left: 5px;
+    margin-top: 15px;
     font-family:Arial, Helvetica, sans-serif;
     word-break: break-all;
     overflow-y: scroll;
+    color: white;
     
    
 }
 #centro{
   color: white;
-  background-color:black;
   display: flex;
   justify-content: center;
   align-items: center;

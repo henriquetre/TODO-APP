@@ -12,7 +12,7 @@
       <div *ngFor="let tarefa of listaTarefas">
         <div *ngIf="tarefa.Categoria == categoria.Nome">
         
-        <p class="alinhar"class="listasT" class="categoria">  Descricao: {{tarefa.Descricao}}
+        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor">  Descricao: {{tarefa.Descricao}}
      
 
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
