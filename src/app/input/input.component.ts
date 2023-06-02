@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit } from "@angular/core";
 
 
 
+
 interface Tarefa{
     Descricao: string;
     Categoria: string;
@@ -15,6 +16,7 @@ interface Tarefa{
 
 
 })
+
 export class InputComponent implements OnInit{
 
   ngOnInit() {
@@ -76,8 +78,25 @@ export class InputComponent implements OnInit{
       console.log('entrei');
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas))
     }
+    categoriaNova: string
+    
+    dragover(categoria: string){
+      console.log("Deu certo")
 
-  
+      console.log(categoria)
+
+      this.categoriaNova=categoria;
+      console.log(this.categoriaNova)
+    }
+    dragEnd(tarefa: Tarefa){
+      console.log(tarefa)
+
+      console.log(this.categoriaNova)
+      console.log("teste "+ this.categoriaNova)
+      tarefa.Categoria= this.categoriaNova;
+      localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
+      console.log(tarefa)
+    }
   }
   
      
