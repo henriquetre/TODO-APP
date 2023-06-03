@@ -81,20 +81,29 @@ export class InputComponent implements OnInit{
     categoriaNova: string
     
     dragover(categoria: string){
-      console.log("Deu certo")
+      
 
-      console.log(categoria)
+   
 
       this.categoriaNova=categoria;
-      console.log(this.categoriaNova)
+      
+    
     }
     dragEnd(tarefa: Tarefa){
-      console.log(tarefa)
-
-      console.log(this.categoriaNova)
-      console.log("teste "+ this.categoriaNova)
+      
+      
       tarefa.Categoria= this.categoriaNova;
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
+    
+
+      
+
+    }
+    mudaPosicao(tarefa:Tarefa){
+
+      const index = this.listaTarefas.indexOf(tarefa);
+      const elementoRemovido = this.listaTarefas.splice(index, 1)[0];
+      console.log(this.listaTarefas.splice(1,0,elementoRemovido))
       console.log(tarefa)
     }
   }
