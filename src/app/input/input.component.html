@@ -13,7 +13,7 @@
       <div *ngFor="let tarefa of listaTarefas">
         <div *ngIf="tarefa.Categoria == categoria.Nome">
         
-        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor" draggable="true" (dragend)="dragEnd(tarefa)" (dragover)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
+        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor" draggable="true" (dragend)="dragEnd(tarefa)" (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
      
 
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
