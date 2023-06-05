@@ -31,7 +31,6 @@ export class InputComponent implements OnInit{
       this.listaCategoria = lista1;
       console.log(lista1);
     } 
-  
   }
 
 
@@ -100,11 +99,13 @@ export class InputComponent implements OnInit{
 
     }
     mudaPosicao(tarefa:Tarefa){
-
+      
       const index = this.listaTarefas.indexOf(tarefa);
       const elementoRemovido = this.listaTarefas.splice(index, 1)[0];
-      console.log(this.listaTarefas.splice(1,0,elementoRemovido))
-      console.log(tarefa)
+      const index2 = this.listaTarefas.indexOf(elementoRemovido);
+      console.log("Primeiro: "+this.listaTarefas.splice(index,0,elementoRemovido));
+      console.log(index2);
+      console.log(tarefa);
     }
   }
   

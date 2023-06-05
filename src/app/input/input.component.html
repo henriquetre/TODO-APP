@@ -7,8 +7,7 @@
    </select> 
   </div>
 <div class="grid">
-     <div *ngFor="let categoria of listaCategoria" class="listasDI" (dragover)="dragover(categoria.Nome
-     )" ><div id="centro" [style.background-color]="categoria.Cor"  >{{categoria.Nome}}</div>
+     <div *ngFor="let categoria of listaCategoria" class="listasDI" (dragover)="dragover(categoria.Nome)" ><div id="centro" [style.background-color]="categoria.Cor"  >{{categoria.Nome}}</div>
   
       <div *ngFor="let tarefa of listaTarefas">
         <div *ngIf="tarefa.Categoria == categoria.Nome">
