@@ -78,34 +78,30 @@ export class InputComponent implements OnInit{
       localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas))
     }
     categoriaNova: string
-    
+    posicao: number
     dragover(categoria: string){
-      
 
-   
-
-      this.categoriaNova=categoria;
-      
-    
+     this.categoriaNova=categoria; 
+     
     }
     dragEnd(tarefa: Tarefa){
       
-      
       tarefa.Categoria= this.categoriaNova;
-      localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
-    
-
-      
+      localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));  
 
     }
     mudaPosicao(tarefa:Tarefa){
       
       const index = this.listaTarefas.indexOf(tarefa);
+      console.log("index:"+ index)
       const elementoRemovido = this.listaTarefas.splice(index, 1)[0];
-      const index2 = this.listaTarefas.indexOf(elementoRemovido);
-      console.log("Primeiro: "+this.listaTarefas.splice(index,0,elementoRemovido));
-      console.log(index2);
+      const index1 = this.listaTarefas.indexOf(elementoRemovido);
+      console.log("Primeiro: "+this.listaTarefas.splice(this.posicao,0,elementoRemovido));
+    
       console.log(tarefa);
+    }
+    pegaposicao(tarefa : Tarefa){
+     this.posicao= this.listaTarefas.indexOf(tarefa);
     }
   }
   
