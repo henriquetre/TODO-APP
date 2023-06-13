@@ -11,7 +11,7 @@
   
       <div *ngFor="let tarefa of listaTarefas">
         <div *ngIf="tarefa.Categoria == categoria.Nome">
-          <div *ngFor="let propriedade of listaPropriedades"> propriedade: {{tarefa.propriedade}}</div>
+          <div *ngFor="let propriedade of listaPropriedade"> propriedade: {{propriedade.nome}}</div>
         <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)"  (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
      
           
@@ -21,10 +21,12 @@
             [(ngModel)]="tarefa.Categoria"
             (change)="atualizarLocalStorage()">
             <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
-            </select> 
+            </select>
+           
           </p>
        </div>
       </div>
+      
     </div>
     </div>
   

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-interface Propiedade{
+interface Propriedade{
     nome: string;
     selecao: string;
 
@@ -17,19 +17,28 @@ export class propriedadesComponent implements OnInit{
 
 
     listaSelecao: String[]=[];
-    listaPropiedade: Propiedade[]=[];
+    listaPropriedade: Propriedade[]=[];
     ngOnInit(): void {
         this.listaSelecao.push("String", "Int", "Categoria")
+        const lista2: Propriedade[] = JSON.parse(localStorage.getItem('listaPropriedades'));
+    if (lista2 != null) {
+      this.listaPropriedade= lista2;
+      console.log(this.listaPropriedade);
+    } 
     }
 
     salvarPropriedades(): void{
-        const propriedade: Propiedade ={
+        const propriedade1: Propriedade ={
             selecao: this.selecao1,
             nome: this.nome
         };
-        console.log(this.selecao1)
-        this.listaPropiedade.push(propriedade);
-        console.log(propriedade);
+        
+        this.listaPropriedade.push(propriedade1);
+        console.log(propriedade1);
+        console.log(this.listaPropriedade)
+        localStorage.setItem('listaPropriedade', JSON.stringify(this.listaPropriedade));
+        console.log(propriedade1.nome)
+        this.nome="";
     }
    
 

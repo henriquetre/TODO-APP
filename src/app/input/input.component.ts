@@ -32,6 +32,11 @@ export class InputComponent implements OnInit{
       this.listaCategoria = lista1;
       console.log(lista1);
     } 
+    const lista2: String[] = JSON.parse(localStorage.getItem('listaPropriedades'));
+    if (lista2 != null) {
+      this.listaPropriedades= lista2;
+      console.log(lista2);
+    } 
   }
 
 
