@@ -1,0 +1,9 @@
+
+<h3 id="center">Cadastro de propriedades</h3>
+<input placeholder="Título" [(ngModel)]="nome"/>
+<select  [(ngModel)]="selecao1" >
+    <option *ngFor="let selecao of listaSelecao">{{selecao}}</option>
+    
+
+</select>
+<button (click)="salvarPropriedades()"> Salvar </button>

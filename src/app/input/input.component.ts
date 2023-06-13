@@ -6,6 +6,7 @@ import { Component, Output, EventEmitter, OnInit } from "@angular/core";
 interface Tarefa{
     Descricao: string;
     Categoria: string;
+    Propriedade: string;
 }
 
 @Component({
@@ -41,15 +42,18 @@ export class InputComponent implements OnInit{
     tarefa: Tarefa = {
       Descricao: "",
       Categoria: "",
+      Propriedade: ""
     };
 
     listaTarefas: Tarefa[]=[];
     listaCategoria: String[]=[];
-
+    listaPropriedades: String []=[];
+    
     adicionarTarefa(): void{
         const novaTarefa: Tarefa = {
             Descricao: this.tarefa.Descricao,
             Categoria: this.tarefa.Categoria,
+            Propriedade: this.tarefa.Propriedade
           };
           console.log(novaTarefa)
           if(this.tarefa.Categoria==""){

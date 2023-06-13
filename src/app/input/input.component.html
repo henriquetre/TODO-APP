@@ -11,18 +11,18 @@
   
       <div *ngFor="let tarefa of listaTarefas">
         <div *ngIf="tarefa.Categoria == categoria.Nome">
-        
-        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor" draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)" (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
+          <div *ngFor="let propriedade of listaPropriedades"> propriedade: {{tarefa.propriedade}}</div>
+        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)"  (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
      
-
+          
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
-  
+       
             <select class="select"
             [(ngModel)]="tarefa.Categoria"
             (change)="atualizarLocalStorage()">
             <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
             </select> 
-        </p>
+          </p>
        </div>
       </div>
     </div>

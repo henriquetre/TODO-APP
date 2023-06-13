@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { TodoComponent } from "src/todo/todo.component";
 import { InputComponent } from "./input/input.component";
+import { propriedadesComponent } from "./propriedades/propriedades.component";
+
 
 const rotas: Route[]= [
     {
@@ -12,6 +14,11 @@ const rotas: Route[]= [
         path: 'Tarefas',
         component: InputComponent
     },
+    {
+        path : 'propriedades',
+        component: propriedadesComponent
+    },
+
     {
         path: '',
         redirectTo: 'categoria',
