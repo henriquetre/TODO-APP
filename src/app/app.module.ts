@@ -8,6 +8,7 @@ import { Apprountingmodule } from './app-rounting.module';
 import { TodoModule } from 'src/todo/todo.module';
 import { propriedadesModule } from './propriedades/propriedades.module';
 import { UserRepository } from 'src/repositories/user.repository';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserRepository } from 'src/repositories/user.repository';
     inputModule,
     Apprountingmodule,
     TodoModule,
-    propriedadesModule
+    propriedadesModule,
+    LoginModule
   ],
   providers: [
     UserRepository

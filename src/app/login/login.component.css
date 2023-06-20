@@ -1,0 +1,28 @@
+#modalBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.301);
+    width: 30%;
+    height: 40%;
+    flex-direction: column;
+}
+#boxFlex{
+    width:100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#inputBox{
+    width: 40%;
+    height: 30%;
+    background-color: rgba(128, 128, 128, 0);
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    justify-items: center;
+}
+input{
+    width: 160px;
+    height: 18px;
+}

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { TodoComponent } from "src/todo/todo.component";
 import { InputComponent } from "./input/input.component";
+import { LoginComponent } from "./login/login.component";
 import { propriedadesComponent } from "./propriedades/propriedades.component";
 
 
@@ -20,8 +21,14 @@ const rotas: Route[]= [
     },
 
     {
+        path: 'login',
+        component: LoginComponent
+    },
+
+
+    {
         path: '',
-        redirectTo: 'categoria',
+        redirectTo: 'login ',
         pathMatch: 'full'
     }
 ]
