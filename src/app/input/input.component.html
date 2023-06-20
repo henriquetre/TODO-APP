@@ -10,25 +10,35 @@
      <div *ngFor="let categoria of listaCategoria" class="listasDI" (dragover)="dragover(categoria.Nome)" ><div id="centro" [style.background-color]="categoria.Cor"  >{{categoria.Nome}}</div>
   
       <div *ngFor="let tarefa of listaTarefas">
+
         <div *ngIf="tarefa.Categoria == categoria.Nome">
-          <div *ngFor="let propriedade of listaPropriedade"> propriedade: {{propriedade.nome}}</div>
-        <p class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)"  (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
+
+          
+          
+        <div class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)"  (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
      
           
+          
           <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
-       
+        
+        
             <select class="select"
             [(ngModel)]="tarefa.Categoria"
             (change)="atualizarLocalStorage()">
             <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
             </select>
+            <div *ngFor="let propriedade of listaPropriedades" [style.background-color]="categoria.Cor"> 
+              <input placeholder="propriedade: {{propriedade.nome}}">
            
-          </p>
-       </div>
+          </div>
+        </div>
+      
+      </div>
       </div>
       
     </div>
     </div>
+    
   
   
 

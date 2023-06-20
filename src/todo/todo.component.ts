@@ -17,6 +17,9 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     const lista1: Categoria[] = JSON.parse(localStorage.getItem('listaCategoria'));
+    this.categoria.Nome="Sem categoria";
+    this.listaCategoria.push(this.categoria);
+    console.log("Foi"+this.categoria);
     if (lista1 != null) {
       this.listaCategoria = lista1;
       console.log(lista1);

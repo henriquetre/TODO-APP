@@ -18,14 +18,17 @@ export class propriedadesComponent implements OnInit{
 
     listaSelecao: String[]=[];
     listaPropriedade: Propriedade[]=[];
+
     ngOnInit(): void {
         this.listaSelecao.push("String", "Int", "Categoria")
-        const lista2: Propriedade[] = JSON.parse(localStorage.getItem('listaPropriedades'));
+        let lista2: Propriedade[] = JSON.parse(localStorage.getItem('listaPropriedade'));
     if (lista2 != null) {
       this.listaPropriedade= lista2;
-      console.log(this.listaPropriedade);
+      console.log(lista2);
     } 
     }
+
+
 
     salvarPropriedades(): void{
         const propriedade1: Propriedade ={
@@ -39,6 +42,16 @@ export class propriedadesComponent implements OnInit{
         localStorage.setItem('listaPropriedade', JSON.stringify(this.listaPropriedade));
         console.log(propriedade1.nome)
         this.nome="";
+        if(this.selecao1=="Categoria"){
+            window.location.href="http://localhost:4200/categoria"
+        }
+        let i=0;
+        // for(let propriedadeCategoria of this.listaPropriedade){
+           
+        //     if(propriedadeCategoria.selecao=="Categoria" && i!=1){
+        //         i++;
+        //     }
+        // }
     }
    
 

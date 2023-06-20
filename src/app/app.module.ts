@@ -7,6 +7,7 @@ import { inputModule } from './input/input.module';
 import { Apprountingmodule } from './app-rounting.module';
 import { TodoModule } from 'src/todo/todo.module';
 import { propriedadesModule } from './propriedades/propriedades.module';
+import { UserRepository } from 'src/repositories/user.repository';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { propriedadesModule } from './propriedades/propriedades.module';
     TodoModule,
     propriedadesModule
   ],
-  providers: [],
+  providers: [
+    UserRepository
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
