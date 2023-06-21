@@ -28,7 +28,7 @@ const rotas: Route[]= [
 
     {
         path: '',
-        redirectTo: 'login ',
+        redirectTo: 'login',
         pathMatch: 'full'
     }
 ]
