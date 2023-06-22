@@ -1,6 +1,6 @@
 <div class="alinhar">
    <input placeholder="Insira sua tarefa" [(ngModel)]="tarefa.Descricao" id="INPUT"/>
-<button (click)="adicionarTarefa()" id="cadastrar">Cadastrar</button>
+<button (click)="adicionarTarefa()" id="cadastrar"  [disabled]="variavelBoolean">Cadastrar</button>
 <select [(ngModel)]="tarefa.Categoria">
    <option *ngFor="let categoria of listaCategoria" >{{categoria.Nome}}</option>
   
@@ -15,11 +15,11 @@
 
           
           
-        <div class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)"  (dragend)="mudaPosicao(tarefa)">  Descricao: {{tarefa.Descricao}}
+        <div class="alinhar"class="listasT" class="categoria" [style.background-color]="categoria.Cor"  draggable="true" (dragover)="pegaposicao(tarefa)" (dragend)="dragEnd(tarefa)">  Descricao: {{tarefa.Descricao}}
      
           
           
-          <button (click)="excluirTarefa(tarefa)" id="excluir">🗑️</button>
+          <button (click)="excluirTarefa(tarefa)" id="excluir" [disabled]="variavelBooleanRemove">🗑️</button>
         
         
             <select class="select"
