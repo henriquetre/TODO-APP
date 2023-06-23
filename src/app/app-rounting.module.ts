@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
+import { AuthGuardService } from "src/services/auth-guard.services";
 import { TodoComponent } from "src/todo/todo.component";
 import { InputComponent } from "./input/input.component";
 import { LoginComponent } from "./login/login.component";
@@ -13,7 +14,8 @@ const rotas: Route[]= [
     },
     {
         path: 'Tarefas',
-        component: InputComponent
+        component: InputComponent,
+        canActivate: [AuthGuardService]
     },
     {
         path : 'propriedades',

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { InputComponent } from "./input.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { FormsModule } from "@angular/forms";
     ],
     imports:[
         CommonModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
        ],
     exports:[
         InputComponent

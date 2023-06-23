@@ -9,6 +9,7 @@ import { TodoModule } from 'src/todo/todo.module';
 import { propriedadesModule } from './propriedades/propriedades.module';
 import { UserRepository } from 'src/repositories/user.repository';
 import { LoginModule } from './login/login.module';
+import { AuthGuardService } from 'src/services/auth-guard.services';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginModule } from './login/login.module';
     LoginModule
   ],
   providers: [
-    UserRepository
+    UserRepository,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
