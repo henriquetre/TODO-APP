@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 
 interface Categoria {
@@ -15,9 +15,11 @@ interface Categoria {
 
 export class TodoComponent implements OnInit {
 
+  @Input() nome: string
+
   ngOnInit() {
     const lista1: Categoria[] = JSON.parse(localStorage.getItem('listaCategoria'));
-    this.categoria.Nome="Sem categoria";
+    this.categoria.Nome=this.nome;
     this.listaCategoria.push(this.categoria);
     console.log("Foi"+this.categoria);
     if (lista1 != null) {

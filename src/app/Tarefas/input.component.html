@@ -27,10 +27,11 @@
             (change)="atualizarLocalStorage()">
             <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
             </select>
-            <div *ngFor="let propriedade of listaPropriedades" [style.background-color]="categoria.Cor"> 
-              <input placeholder="propriedade: {{propriedade.nome}}">
-           
-          </div>
+            <div *ngFor="let propriedade of listaPropriedade" [style.background-color]="categoria.Cor"> 
+            <div *ngIf="tarefa.Propriedade == propriedade.nome">
+              <input placeholder="propriedade: {{propriedade.nome}}" [(ngModel)]="valorCampo" (input)="salvaEscrito()" >
+            </div>
+            </div>
         </div>
       
       </div>

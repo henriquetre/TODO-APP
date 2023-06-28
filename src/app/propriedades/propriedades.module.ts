@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { propriedadesComponent } from "./propriedades.component";
+import { TodoModule } from "src/Categorias/todo.module";
 
 @NgModule({
     declarations:[
@@ -9,7 +10,8 @@ import { propriedadesComponent } from "./propriedades.component";
     ],
     imports:[
         CommonModule,
-        FormsModule
+        FormsModule,
+        TodoModule
     ],
     exports:[
         propriedadesComponent

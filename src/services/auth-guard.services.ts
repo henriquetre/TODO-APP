@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 export class AuthGuardService implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
         
-        return false;
+        return true;
         
     }
 

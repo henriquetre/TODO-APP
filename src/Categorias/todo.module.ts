@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { inputModule } from "src/app/input/input.module";
+import { inputModule } from "src/app/Tarefas/input.module";
 import { TodoComponent } from "./todo.component";
 
 

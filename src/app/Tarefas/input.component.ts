@@ -35,7 +35,7 @@ export class InputComponent implements OnInit{
     } 
     const lista2: String[] = JSON.parse(localStorage.getItem('listaPropriedade'));
     if (lista2 != null) {
-      this.listaPropriedades= lista2;
+      this.listaPropriedade= lista2;
       console.log(lista2);
     } 
   }
@@ -53,17 +53,21 @@ export class InputComponent implements OnInit{
 
     listaTarefas: Tarefa[]=[];
     listaCategoria: String[]=[];
-    listaPropriedades: String []=[];
+    listaPropriedade: String []=[];
     variavelBoolean: boolean;
     variavelBooleanRemove: boolean;
+
     adicionarTarefa(): void{
-      if (!this.hasPermission('add')) {
-        alert('Não pode cadastrar');
+      console.log(this.userId)
+      console.log(this.tarefa.Propriedade)
+      
+      // if (!this.hasPermission('add')) {
+      //   alert('Não pode cadastrar');
       
       
-        this.variavelBoolean=true
-        }else{
-          this.variavelBoolean=false;
+        // this.variavelBoolean=true
+        // }else{
+          // this.variavelBoolean=false;
           const novaTarefa: Tarefa = {
             Descricao: this.tarefa.Descricao,
             Categoria: this.tarefa.Categoria,
@@ -79,9 +83,9 @@ export class InputComponent implements OnInit{
             this.listaTarefas.push(novaTarefa);
             localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
             this.tarefa.Descricao="";
-            
+            console.log(novaTarefa.Propriedade)
           }
-        }
+        // }
     
         }
          
@@ -196,6 +200,11 @@ export class InputComponent implements OnInit{
     return this.users.find((user)=> {
       return user.id === this.userId
     })
+  }
+
+  valorCampo: string;
+  salvaEscrito(){
+    localStorage.setItem('valorDigitado', this.valorCampo)
   }
 
 }

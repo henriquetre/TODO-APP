@@ -4,9 +4,9 @@
 <div id="modalBox">
   <div class="text">LOGIN</div>
   <div id="inputBox">
-    <input class="input" type="text" placeholder="Usario">
-    <input  class="input" placeholder="Senha">
-    <button id="buttonAcessar"> ACESSAR </button>
+    <input class="input" type="text" placeholder="Nome">
+    <input  class="input" placeholder="ID" [(ngModel)]="idUsuario">
+    <button id="buttonAcessar" (click)="login(idUsuario)"> ACESSAR </button>
   </div>
 
 
