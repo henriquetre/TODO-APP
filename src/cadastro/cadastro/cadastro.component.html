@@ -1,0 +1,18 @@
+<div id="boxFlex">
+
+  <div id="modalBox">
+    <div class="text">CADASTRO</div>
+    <div id="inputBox">
+      <input class="input" type="text" placeholder="Nome" [(NgModel)]="nome">
+
+      <input  class="input" placeholder="Email" [(NgModel)]="email">
+
+      <input  class="input" placeholder="Senha" [(NgModel)]="senha" >
+      
+    
+      <button id="buttonAcessar" (click)="cadastrar(nome,email,senha)"> Cadastrar </button>
+    </div>
+  
+  
+  </div>
+  </div>

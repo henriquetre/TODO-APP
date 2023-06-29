@@ -5,6 +5,7 @@ import { TodoComponent } from "src/Categorias/todo.component";
 import { InputComponent } from "./Tarefas/input.component";
 import { LoginComponent } from "./login/login.component";
 import { propriedadesComponent } from "./propriedades/propriedades.component";
+import { CadastroComponent } from "src/cadastro/cadastro/cadastro.component";
 
 
 const rotas: Route[]= [
@@ -26,11 +27,16 @@ const rotas: Route[]= [
         path: 'login',
         component: LoginComponent
     },
+    {
+        path: 'cadastro',
+        component: CadastroComponent
+
+    },
 
 
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'cadastro',
         pathMatch: 'full'
     }
 ]
