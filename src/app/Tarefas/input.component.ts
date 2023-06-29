@@ -74,7 +74,7 @@ export class InputComponent implements OnInit{
             Propriedade: this.tarefa.Propriedade
           
           };
-          console.log(novaTarefa)
+          console.log(novaTarefa.Propriedade)
           if(this.tarefa.Categoria==""){
             alert("Insira uma Categoria" )
           
@@ -83,7 +83,6 @@ export class InputComponent implements OnInit{
             this.listaTarefas.push(novaTarefa);
             localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
             this.tarefa.Descricao="";
-            console.log(novaTarefa.Propriedade)
           }
         // }
     
