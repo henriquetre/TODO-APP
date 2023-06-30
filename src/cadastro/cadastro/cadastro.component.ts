@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NOMEM } from 'dns';
+import { s } from '@angular/core/src/render3';
+import { Router } from '@angular/router';
+import { User } from 'src/models/users/users';
+import { UserRepository } from 'src/repositories/user.repository';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -8,18 +12,48 @@ import { NOMEM } from 'dns';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    private apiServices: UserRepository) {
+
+  }
 
   ngOnInit() {
   }
-nome:string;
-email:string;
-senha:string;
+  userNome: string
+  userEmail: string
+  userSenha: string
+  userName: string
 
-  cadastrar(nome:string, email:string, senha:string ):string{
-    console.log(nome,email,senha)
-    return nome;
+  user: User = {
+    id: "",
+    name: "",
+    senha: "",
+    email: "",
+    groups: [],
+    cardPermissions: [],
+    propertiesPermissions: [],
+  }
 
+  cadastrar(userNome: string, userEmail: string, userSenha: string, userName: string): string {
+    const userNovo: User = {
+      id: userName,
+      name: userNome,
+      email: userEmail,
+      senha: userSenha,
+    }
+
+
+
+    this.apiServices.createUsers(userNovo).subscribe(
+      (userNovo) => {
+        console.log("Usuario adcionado: " + userNovo)
+        this.router.navigate(['/login'])
+
+      }, (error) => {
+        console.log(error);
+      }
+    )
+    return userName;
   }
 
 }

@@ -53,11 +53,6 @@ export class propriedadesComponent implements OnInit {
       this.nome = "";
     }
     let i = 0;
-    // for(let propriedadeCategoria of this.listaPropriedade){
-
-    //     if(propriedadeCategoria.selecao=="Categoria" && i!=1){
-    //         i++;
-    //     }
-    // }
+    
   }
 }

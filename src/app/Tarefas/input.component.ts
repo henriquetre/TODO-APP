@@ -8,7 +8,12 @@ import { UserRepository } from "src/repositories/user.repository";
 interface Tarefa{
     Descricao: string;
     Categoria: string;
-    Propriedade: string;
+    Propriedade: String [];
+}
+
+interface Propriedade {
+  nome: string;
+  selecao: string;
 }
 
 @Component({
@@ -33,7 +38,7 @@ export class InputComponent implements OnInit{
       this.listaCategoria = lista1;
       console.log(lista1);
     } 
-    const lista2: String[] = JSON.parse(localStorage.getItem('listaPropriedade'));
+    const lista2: Propriedade[] = JSON.parse(localStorage.getItem('listaPropriedade'));
     if (lista2 != null) {
       this.listaPropriedade= lista2;
       console.log(lista2);
@@ -41,19 +46,21 @@ export class InputComponent implements OnInit{
   }
 
 
-
+  listaPropriedade:Propriedade []=[];
   categoria: String;
     @Output() click = new EventEmitter<Tarefa>();
+
+    valorCampos: string[] = [];
 
     tarefa: Tarefa = {
       Descricao: "",
       Categoria: "",
-      Propriedade: ""
+      Propriedade: this.valorCampos.slice() 
     };
 
     listaTarefas: Tarefa[]=[];
     listaCategoria: String[]=[];
-    listaPropriedade: String []=[];
+  
     variavelBoolean: boolean;
     variavelBooleanRemove: boolean;
 
@@ -158,6 +165,9 @@ export class InputComponent implements OnInit{
   user: User ={
     id: "",
     name:"",
+    email:"",
+    senha:"",
+   
     groups:[],
     cardPermissions:[],
     propertiesPermissions: [],
@@ -201,9 +211,8 @@ export class InputComponent implements OnInit{
     })
   }
 
-  valorCampo: string;
   salvaEscrito(){
-    localStorage.setItem('valorDigitado', this.valorCampo)
+    localStorage.setItem('valorDigitado', JSON.stringify(this.valorCampos))
   }
 
 }
