@@ -8,12 +8,13 @@ import { UserRepository } from "src/repositories/user.repository";
 interface Tarefa{
     Descricao: string;
     Categoria: string;
-    Propriedade: String [];
+    Propriedade: Propriedade[];
 }
 
 interface Propriedade {
   nome: string;
   selecao: string;
+  valorCampo: string [];
 }
 
 @Component({
@@ -26,7 +27,22 @@ interface Propriedade {
 })
 
 export class InputComponent implements OnInit{
+
+  constructor(private userRepository: UserRepository){
+    userRepository.getUsers().subscribe({
+      next:(value)=>{
+        console.log(value);
+        this.users=value;
+        this.user= this.getUsuarioLogado(); 
+      }
+    });
+
+    
+   console.log(this.user);
+  }
+
   ngOnInit() {
+    
     const lista: Tarefa[] = JSON.parse(localStorage.getItem('listaTarefas'));
     if (lista != null) {
       this.listaTarefas = lista;
@@ -36,12 +52,28 @@ export class InputComponent implements OnInit{
     const lista1: String[] = JSON.parse(localStorage.getItem('listaCategoria'));
     if (lista1 != null) {
       this.listaCategoria = lista1;
+   
       console.log(lista1);
     } 
+    
     const lista2: Propriedade[] = JSON.parse(localStorage.getItem('listaPropriedade'));
+    this.tarefa.Categoria=""
     if (lista2 != null) {
+      
+      
       this.listaPropriedade= lista2;
       console.log(lista2);
+
+    } 
+
+    const printDosInputs: string []= JSON.parse(localStorage.getItem('valorDigitado'));
+
+    if (printDosInputs != null) {
+      
+      
+      this.valorCampos= printDosInputs;
+      console.log(lista2);
+
     } 
   }
 
@@ -50,12 +82,12 @@ export class InputComponent implements OnInit{
   categoria: String;
     @Output() click = new EventEmitter<Tarefa>();
 
-    valorCampos: string[] = [];
+    valorCampos: string [];
 
     tarefa: Tarefa = {
       Descricao: "",
       Categoria: "",
-      Propriedade: this.valorCampos.slice() 
+      Propriedade: [] 
     };
 
     listaTarefas: Tarefa[]=[];
@@ -81,16 +113,16 @@ export class InputComponent implements OnInit{
             Propriedade: this.tarefa.Propriedade
           
           };
-          console.log(novaTarefa.Propriedade)
+
           if(this.tarefa.Categoria==""){
-            alert("Insira uma Categoria" )
+          novaTarefa.Categoria="Sem categoria" 
           
-          }else{
+          }
           
             this.listaTarefas.push(novaTarefa);
             localStorage.setItem('listaTarefas', JSON.stringify(this.listaTarefas));
             this.tarefa.Descricao="";
-          }
+          
         // }
     
         }
@@ -175,17 +207,7 @@ export class InputComponent implements OnInit{
   
   
 
-  constructor(private userRepository: UserRepository){
-    userRepository.getUsers().subscribe({
-      next:(value)=>{
-        console.log(value);
-        this.users=value;
-        this.user= this.getUsuarioLogado(); 
-      }
-    });
-
-   console.log(this.user);
-  }
+ 
 
  
   private hasPermission(permission: string): boolean{
@@ -210,8 +232,7 @@ export class InputComponent implements OnInit{
       return user.id === this.userId
     })
   }
-
-  salvaEscrito(){
+  editarPropriedades(){
     localStorage.setItem('valorDigitado', JSON.stringify(this.valorCampos))
   }
 

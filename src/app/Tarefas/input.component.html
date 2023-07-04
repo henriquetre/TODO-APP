@@ -3,6 +3,7 @@
 <button (click)="adicionarTarefa()" id="cadastrar"  [disabled]="variavelBoolean">Cadastrar</button>
 <select [(ngModel)]="tarefa.Categoria">
    <option *ngFor="let categoria of listaCategoria" >{{categoria.Nome}}</option>
+
   
    </select> 
   </div>
@@ -26,7 +27,8 @@
             <option *ngFor="let categoria of listaCategoria">{{categoria.Nome}}</option>
             </select>
             <div *ngFor="let propriedade of listaPropriedade; let i = index" [style.background-color]="categoria.Cor">
-              <input placeholder="propriedade: {{propriedade.nome}}" [(ngModel)]="valorCampos[i]" (input)="salvaEscrito()" >
+              <input placeholder="propriedade: {{propriedade.nome}}" [(ngModel)]="valorCampos" (input)="salvaEscrito()" >
+              <button (click)="editarPropriedades()">Editar</button>
             </div>
         </div>
       

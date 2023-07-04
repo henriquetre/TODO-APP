@@ -16,17 +16,27 @@ interface Categoria {
 export class TodoComponent implements OnInit {
 
   @Input() nome: string
+  constructor(
+  ){
+    this.categoria.Nome="Sem categoria";
+    this.categoria.Cor="#000000";
+    this.listaCategoria.push(this.categoria)
+    localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria));
+
+  }
 
   ngOnInit() {
     const lista1: Categoria[] = JSON.parse(localStorage.getItem('listaCategoria'));
     this.categoria.Nome=this.nome;
+    
     this.listaCategoria.push(this.categoria);
     console.log("Foi"+this.categoria);
-    if (lista1 != null) {
+
+    if (lista1.length!=null) {
       this.listaCategoria = lista1;
       console.log(lista1);
     }
-
+    
 
     
   }
@@ -54,14 +64,11 @@ export class TodoComponent implements OnInit {
       Nome: this.categoria.Nome,
       Cor: this.categoria.Cor
     };
-    if (NovaCategoria.Nome == "") {
-      alert("Insira um nome para a Categoria")
-    } else {
       console.log(NovaCategoria)
       this.listaCategoria.push(NovaCategoria)
       localStorage.setItem('listaCategoria', JSON.stringify(this.listaCategoria));
       this.categoria.Nome = "";
-    }
+    
 
 
 

@@ -8,9 +8,10 @@
 </select>
 
 <button (click)="salvarPropriedades()" [disabled]="disabilitar"> Salvar </button>
-<button (click)="excluirPropriedades()"> Excluir </button>
-<div *ngFor="let propriedade of listaPropriedade"> propriedade: {{propriedade.nome}}</div>
 
+<div *ngFor="let propriedade of listaPropriedade"> propriedade: {{propriedade.nome}}
+<button (click)="excluirPropriedades(propriedade)"> Excluir </button>
+</div>
 <div *ngIf="selecao1 == 'Categoria'" >
     <todo [nome]="nome"></todo>
 </div>
