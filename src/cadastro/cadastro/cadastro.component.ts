@@ -56,4 +56,8 @@ export class CadastroComponent implements OnInit {
     return userName;
   }
 
+  trocaRota(){
+    this.router.navigate(['/login'])
+  }
+
 }

@@ -20,7 +20,8 @@ const rotas: Route[]= [
     },
     {
         path : 'propriedades',
-        component: propriedadesComponent
+        component: propriedadesComponent,
+        canActivate: [AuthGuardService]
     },
 
     {
@@ -29,7 +30,7 @@ const rotas: Route[]= [
     },
     {
         path: 'cadastro',
-        component: CadastroComponent
+        component: CadastroComponent,
 
     },
 

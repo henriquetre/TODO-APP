@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { User } from 'src/models/users/users';
 import { UserRepository } from 'src/repositories/user.repository';
+import { CookieService } from 'src/services/cookies.services';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private apiServices:UserRepository
+    private apiServices:UserRepository,
+    private cookieServices: CookieService
     ) { }
 
   ngOnInit() {
@@ -29,6 +31,8 @@ idUsuario:string;
         for (const i of user) {
           if(i.id==this.idUsuario){
             alert("O usuario: "+ id+" entrou")
+           this.cookieServices.setCookie(i);
+
             this.router.navigate(['/Tarefas']);
           }
         }
@@ -44,6 +48,9 @@ idUsuario:string;
     
 
 
+  }
+  mudarRota(){
+    this.router.navigate(['/cadastro'])
   }
 
 

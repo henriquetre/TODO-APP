@@ -1,13 +1,23 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from "@angular/router";
-import { Observable } from "rxjs";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
+
+import { CookieService } from "./cookies.services";
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
+    constructor(
+        private cookieServices: CookieService,
+        private router: Router
+    ){}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
-        
-        return true;
-        
+        if(this.cookieServices.getLoggedUser()){
+            return true;
+
+        }else{
+            this.router.navigate(['/login'])
+            return false;   
+        }
+                
     }
 
 }

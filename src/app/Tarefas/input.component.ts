@@ -14,7 +14,7 @@ interface Tarefa{
 interface Propriedade {
   nome: string;
   selecao: string;
-  valorCampo: string [];
+  emEdicao:boolean;
 }
 
 @Component({
@@ -203,6 +203,7 @@ export class InputComponent implements OnInit{
     groups:[],
     cardPermissions:[],
     propertiesPermissions: [],
+
   }
   
   
@@ -232,9 +233,11 @@ export class InputComponent implements OnInit{
       return user.id === this.userId
     })
   }
-  editarPropriedades(){
-    localStorage.setItem('valorDigitado', JSON.stringify(this.valorCampos))
-  }
+  
+  // salvaEscrito(propriedade:Propriedade){
+  //   localStorage.setItem('valorDigitado', JSON.stringify(propriedade.v))
+  // }
+
 
 }
 

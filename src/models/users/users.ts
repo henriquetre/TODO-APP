@@ -7,9 +7,4 @@ export class User {
     cardPermissions?: string[];
     propertiesPermissions?: string[];
 
-    
-    
-     
-      
-    
 }
